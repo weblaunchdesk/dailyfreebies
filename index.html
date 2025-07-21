@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DailyFreebies - High-Demand Free Deals for Indian College Students</title>
+    <meta name="description" content="Discover high-demand free courses, subscriptions, and trials tailored for Indian college students. Daily updates on the best freebies!">
+    <meta name="keywords" content="freebies, free deals, free courses, free subscriptions, Indian students, college freebies, online courses, software trials, student offers, daily deals India">
+    
+    <!-- OpenGraph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="DailyFreebies - High-Demand Free Deals for Indian College Students">
+    <meta property="og:description" content="Discover high-demand free courses, subscriptions, and trials tailored for Indian college students. Daily updates on the best freebies!">
+    <meta property="og:image" content="https://placehold.co/1200x630/4f46e5/ffffff?text=DailyFreebies"> <!-- Replace with your actual logo/banner -->
+    <meta property="og:url" content="YOUR_WEBSITE_URL_HERE"> <!-- Replace with your actual website URL -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DailyFreebies">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://placehold.co/32x32/4f46e5/ffffff?text=DF" type="image/x-icon">
+    <!-- Web Manifest (for PWA capabilities - create manifest.json separately if needed) -->
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons (thumbs up/down) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0xXgJb8e+1jQ/q1g/6Fz3Tj6oN5z5v5B5L5F5D5E5C5B5A5F5D5E5C5B5A5F5D5E5C5B5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        /* Custom styles for Inter font and subtle animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f8fafc; /* Lighter gray background */
+        }
+
+        /* Dark mode specific styles */
+        .dark body {
+            background-color: #121212; /* Very dark background */
+            color: #e0e0e0; /* Light text */
+        }
+        .dark .bg-white {
+            background-color: #1e1e1e; /* Darker card/section background */
+        }
+        .dark .text-gray-800 {
+            color: #e0e0e0;
+        }
+        .dark .text-gray-600 {
+            color: #b0b0b0;
+        }
+        .dark .text-gray-500 {
+            color: #888888;
+        }
+        .dark .border-gray-200 {
+            border-color: #333333;
+        }
+        .dark .shadow-md {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .dark .shadow-lg {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        .dark .shadow-xl {
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+        }
+        .dark .bg-gradient-to-r {
+            background-image: linear-gradient(to right, #4a0e7a, #3b0a5e); /* Darker gradient for hero */
+        }
+        .dark .text-indigo-600 {
+            color: #9f7aea; /* Lighter indigo for dark mode */
+        }
+        .dark .text-indigo-700 {
+            color: #8b5cf6;
+        }
+        .dark .text-indigo-800 {
+            color: #7c3aed;
+        }
+        .dark .bg-indigo-100 {
+            background-color: #3f1e63;
+        }
+        .dark .bg-indigo-600 {
+            background-color: #7c3aed;
+        }
+        .dark .hover\:bg-indigo-700:hover {
+            background-color: #6d28d9;
+        }
+        .dark input, .dark select {
+            background-color: #2a2a2a;
+            border-color: #444444;
+            color: #e0e0e0;
+        }
+        .dark .fa-thumbs-up, .dark .fa-thumbs-down {
+            color: #b0b0b0; /* Lighten icons in dark mode */
+        }
+        .dark .fa-thumbs-up.text-green-500 {
+            color: #4ade80; /* Green for dark mode */
+        }
+        .dark .fa-thumbs-down.text-red-500 {
+            color: #ef4444; /* Red for dark mode */
+        }
+
+
+        /* Custom animation for card entrance */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInSlideUp {
+            animation: fadeInSlideUp 0.6s ease-out forwards;
+        }
+
+        /* Ensure header is above everything */
+        header {
+            z-index: 1000;
+        }
+
+        /* Ensure smooth scrolling for anchor links (if any are added later) */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .dark::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .dark::-webkit-scrollbar-thumb {
+            background: #555;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        .dark::-webkit-scrollbar-thumb:hover {
+            background: #777;
+        }
+    </style>
+    <!-- Google Analytics (GA4) - Replace 'YOUR_GA_MEASUREMENT_ID' -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR_GA_MEASUREMENT_ID'); // Replace with your GA4 Measurement ID
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800 transition-colors duration-300">
+
+    <!-- Sticky Header -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-lg z-50 p-4 border-b border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 transition duration-300 dark:text-indigo-400 dark:hover:text-indigo-300">
+                <!-- Simple SVG Logo Placeholder -->
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.523 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.523 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+                <h1 class="text-2xl sm:text-3xl font-extrabold">DailyFreebies</h1>
+            </a>
+            <div class="flex items-center space-x-4">
+                <!-- Dark Mode Toggle -->
+                <button id="darkModeToggle" aria-label="Toggle dark mode" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <svg class="w-6 h-6 sun-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z"></path>
+                    </svg>
+                    <svg class="w-6 h-6 moon-icon hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.292 13.753A6.992 6.992 0 0012 5c-3.866 0-7 3.134-7 7a7 7 0 007 7c2.96 0 5.59-1.84 6.647-4.485.35-1.04-.08-2.18-.944-2.887l-.001-.001-.001-.001z"></path>
+                    </svg>
+                </button>
+                <!-- Future navigation links could go here -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section class="text-center py-10 sm:py-12 bg-gradient-to-r from-indigo-600 to-purple-700 text-white rounded-2xl shadow-xl mb-12 transform transition duration-500 hover:scale-[1.01] dark:from-indigo-800 dark:to-purple-900">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 animate-pulse">
+                Unlock Amazing Freebies!
+            </h2>
+            <p class="text-base sm:text-lg lg:text-xl opacity-90 max-w-3xl mx-auto">
+                Your daily dose of <strong>high-demand</strong> free courses, subscriptions, trials, and more, tailored for Indian college students.
+            </p>
+        </section>
+
+        <!-- AdSense Block 1 (Below Hero) -->
+        <div class="my-8 text-center bg-gray-50 p-4 rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <!-- Replace with your actual AdSense code -->
+            <p class="text-gray-500 dark:text-gray-400">Advertisement</p>
+            <div class="adsbygoogle w-full h-24 sm:h-32 md:h-28 lg:h-24 bg-gray-200 dark:bg-gray-700 flex items-center justify-center rounded-md text-gray-600 dark:text-gray-400 text-sm">
+                [AdSense Ad Unit - Responsive Banner]
+                <!-- Example: <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-YOUR_ADSENSE_CLIENT_ID"
+                    data-ad-slot="YOUR_ADSENSE_SLOT_ID"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"
+                    loading="lazy" async></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <section class="mb-8 flex flex-col sm:flex-row justify-between items-center gap-4 bg-white p-6 rounded-xl shadow-md border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <input type="text" id="searchInput" placeholder="Search freebies by title or description..."
+                   class="p-3 border border-gray-300 rounded-lg w-full sm:flex-grow focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                   onkeyup="filterFreebies()">
+            
+            <select id="categoryFilter"
+                    class="p-3 border border-gray-300 rounded-lg w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    onchange="filterFreebies()">
+                <option value="all">All Categories</option>
+                <!-- Categories will be dynamically loaded here -->
+            </select>
+
+            <select id="sortOrder"
+                    class="p-3 border border-gray-300 rounded-lg w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    onchange="filterFreebies()"> <!-- Changed to filterFreebies to re-render after sort -->
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+            </select>
+        </section>
+
+        <!-- Freebie Cards Container -->
+        <section id="freebie-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8">
+            <!-- Freebie cards will be dynamically loaded here by JavaScript -->
+            <div class="col-span-full text-center py-10 text-gray-500 text-lg dark:text-gray-400">
+                <div class="flex justify-center items-center space-x-3">
+                    <div class="w-6 h-6 border-4 border-indigo-300 border-t-indigo-600 rounded-full animate-spin"></div>
+                    <span>Loading exciting freebies...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscription Section Placeholder -->
+        <section class="bg-white rounded-xl shadow-lg p-8 sm:p-10 mt-16 text-center border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <h2 class="text-2xl sm:text-3xl font-bold text-indigo-600 mb-4 dark:text-indigo-400">Stay Updated!</h2>
+            <p class="text-gray-600 mb-6 max-w-2xl mx-auto dark:text-gray-300">
+                Never miss a freebie! Get the latest deals directly in your inbox. Subscribe to our exclusive newsletter.
+            </p>
+            <form class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-lg mx-auto">
+                <input type="email" placeholder="Enter your email address" class="p-3 border border-gray-300 rounded-lg w-full sm:flex-grow focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg w-full sm:w-auto dark:bg-indigo-500 dark:hover:bg-indigo-600">
+                    Subscribe Now
+                </button>
+            </form>
+            <p class="text-xs text-gray-500 mt-4 dark:text-gray-400">
+                (This is a placeholder. Future integration with Mailchimp/Buttondown for email marketing.)
+            </p>
+        </section>
+
+        <!-- Legal Links Placeholder -->
+        <section class="mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
+            <p class="mb-2">No login or signup needed. Just pure freebies!</p>
+            <div class="space-x-4">
+                <a href="#" class="hover:underline text-indigo-600 dark:text-indigo-400">Disclaimer</a>
+                <a href="#" class="hover:underline text-indigo-600 dark:text-indigo-400">Privacy Policy</a>
+                <a href="#" class="hover:underline text-indigo-600 dark:text-indigo-400">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky Footer -->
+    <footer class="bg-gray-900 text-white p-6 sm:p-8 text-center mt-12 dark:bg-gray-950">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-sm sm:text-base">&copy; <span id="current-year"></span> DailyFreebies. All rights reserved.</p>
+            <p class="text-xs sm:text-sm mt-2 opacity-80">Crafted with passion for Indian College Students</p>
+            <!-- Future social media icons or links could go here -->
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        let allFreebies = []; // Store all fetched freebies globally
+
+        // Dark Mode Toggle Logic
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const htmlElement = document.documentElement;
+        const sunIcon = darkModeToggle.querySelector('.sun-icon');
+        const moonIcon = darkModeToggle.querySelector('.moon-icon');
+
+        // Check for saved theme preference or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        } else {
+            htmlElement.classList.remove('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        });
+
+        /**
+         * Populates the category filter dropdown with unique categories.
+         * @param {Array<object>} freebies - The array of freebie objects.
+         */
+        function populateCategories(freebies) {
+            const categoryFilter = document.getElementById('categoryFilter');
+            const categories = new Set();
+            freebies.forEach(item => {
+                if (item.category) {
+                    categories.add(item.category.trim());
+                }
+            });
+
+            // Clear existing options except "All Categories"
+            while (categoryFilter.options.length > 1) {
+                categoryFilter.remove(1);
+            }
+
+            Array.from(categories).sort().forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categoryFilter.appendChild(option);
+            });
+        }
+
+        /**
+         * Filters and sorts the freebies based on search input, category, and sort order.
+         */
+        function filterFreebies() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const selectedCategory = document.getElementById('categoryFilter').value;
+            const sortOrder = document.getElementById('sortOrder').value;
+
+            let filteredFreebies = allFreebies.filter(item => {
+                const matchesSearch = (item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                                      (item.description && item.description.toLowerCase().includes(searchTerm));
+                const matchesCategory = selectedCategory === 'all' || (item.category && item.category.toLowerCase() === selectedCategory.toLowerCase());
+                return matchesSearch && matchesCategory;
+            });
+
+            // Sort the filtered freebies
+            filteredFreebies.sort((a, b) => {
+                const dateA = new Date(a.dateAdded);
+                const dateB = new Date(b.dateAdded);
+                if (sortOrder === 'newest') {
+                    return dateB - dateA; // Newest first
+                } else {
+                    return dateA - dateB; // Oldest first
+                }
+            });
+
+            renderFreebies(filteredFreebies);
+        }
+
+        /**
+         * Renders the freebie cards into the container, including AdSense blocks.
+         * @param {Array<object>} freebiesToRender - The array of freebie objects to display.
+         */
+        function renderFreebies(freebiesToRender) {
+            const container = document.getElementById('freebie-container');
+            container.innerHTML = ''; // Clear existing cards
+
+            if (freebiesToRender.length > 0) {
+                freebiesToRender.forEach((item, index) => {
+                    // Placeholder image if no image URL is provided, or if it's invalid
+                    const imageUrl = item.imageUrl && item.imageUrl.startsWith('http') ? item.imageUrl : `https://placehold.co/400x200/4f46e5/ffffff?text=${encodeURIComponent(item.title ? item.title.substring(0, Math.min(item.title.length, 20)) + (item.title.length > 20 ? '...' : '') : 'Freebie')}`;
+                    
+                    const cardHtml = `
+                        <div class="bg-white rounded-xl shadow-md p-6 flex flex-col transform transition duration-300 hover:scale-105 hover:shadow-xl border border-gray-200 animate-fadeInSlideUp dark:bg-gray-800 dark:border-gray-700" style="animation-delay: ${index * 50}ms;">
+                            ${item.imageUrl ? `<img src="${imageUrl}" alt="${item.title || 'Freebie image'}" class="w-full h-32 object-cover rounded-lg mb-4 border border-gray-200 dark:border-gray-600" onerror="this.onerror=null;this.src='https://placehold.co/400x200/4f46e5/ffffff?text=Image+Not+Found';">` : ''}
+                            <h3 class="text-xl font-semibold mb-2 text-indigo-700 leading-tight dark:text-indigo-400">${item.title || 'Untitled Freebie'}</h3>
+                            <p class="text-gray-600 text-sm mb-4 flex-grow line-clamp-3 dark:text-gray-300">${item.description || 'No description available for this freebie.'}</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                ${item.category ? `<span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-200">${item.category}</span>` : ''}
+                                ${item.expiryDate && new Date(item.expiryDate) > new Date() ? `<span class="inline-block bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-200">Expires: ${new Date(item.expiryDate).toLocaleDateString()}</span>` : ''}
+                                ${item.tags && item.tags.length > 0 ? item.tags.split(',').map(tag => `<span class="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">${tag.trim()}</span>`).join('') : ''}
+                            </div>
+                            
+                            <div class="flex justify-between items-center text-xs text-gray-500 mb-4 dark:text-gray-400">
+                                <span>Added: ${item.dateAdded ? new Date(item.dateAdded).toLocaleDateString() : 'N/A'}</span>
+                                <!-- User Feedback Placeholder -->
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-sm">Helpful?</span>
+                                    <button class="text-gray-500 hover:text-green-500 transition-colors duration-200" aria-label="Thumbs up">
+                                        <i class="fas fa-thumbs-up"></i>
+                                    </button>
+                                    <button class="text-gray-500 hover:text-red-500 transition-colors duration-200" aria-label="Thumbs down">
+                                        <i class="fas fa-thumbs-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <a href="${item.link || '#'}" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="mt-auto inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-5 rounded-lg text-center transition duration-300 ease-in-out transform hover:scale-105 shadow-md dark:bg-indigo-500 dark:hover:bg-indigo-600">
+                                Get Freebie
+                            </a>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', cardHtml);
+
+                    // Insert AdSense block after every 6th card
+                    if ((index + 1) % 6 === 0) {
+                        const adHtml = `
+                            <div class="col-span-full my-6 text-center bg-gray-50 p-4 rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                                <p class="text-gray-500 dark:text-gray-400">Advertisement</p>
+                                <div class="adsbygoogle w-full h-24 sm:h-32 md:h-28 lg:h-24 bg-gray-200 dark:bg-gray-700 flex items-center justify-center rounded-md text-gray-600 dark:text-gray-400 text-sm">
+                                    [AdSense Ad Unit - Responsive In-article]
+                                    <!-- Example: <ins class="adsbygoogle"
+                                        style="display:block"
+                                        data-ad-client="ca-pub-YOUR_ADSENSE_CLIENT_ID"
+                                        data-ad-slot="YOUR_ADSENSE_SLOT_ID"
+                                        data-ad-format="fluid"
+                                        data-full-width-responsive="true"
+                                        loading="lazy" async></ins>
+                                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+                                </div>
+                            </div>
+                        `;
+                        container.insertAdjacentHTML('beforeend', adHtml);
+                    }
+                });
+            } else {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-10 text-gray-500 text-lg bg-white rounded-xl shadow-md p-8 dark:bg-gray-800 dark:text-gray-400">
+                        <p class="mb-4">No freebies found matching your criteria.</p>
+                        <p>Try adjusting your search or filters.</p>
+                    </div>
+                `;
+            }
+            // Push any new ads to AdSense if it's loaded
+            if (typeof adsbygoogle !== 'undefined' && adsbygoogle.length > 0) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        }
+
+        /**
+         * Main function to parse JSONP response and initialize display.
+         * @param {object} response - The JSONP response object containing a 'data' array.
+         * @param {Array<object>} response.data - An array of freebie objects.
+         */
+        function parseSheetData(response) {
+            console.log("parseSheetData called with response:", response); // Log the response for debugging
+            if (response && response.data && response.data.length > 0) {
+                // Map data from Google Sheet columns to meaningful keys
+                // Ensure your Apps Script returns these keys:
+                // title, description, link, imageUrl, category, dateAdded, expiryDate, tags
+                allFreebies = response.data.map(item => ({
+                    title: item.title || '',
+                    description: item.description || '',
+                    link: item.link || '',
+                    imageUrl: item.imageUrl || '',
+                    category: item.category || '',
+                    dateAdded: item.dateAdded ? new Date(item.dateAdded) : new Date(0), // Convert to Date object
+                    expiryDate: item.expiryDate || '', // New: Expiry Date
+                    tags: item.tags || '' // New: Tags (comma-separated string)
+                }));
+                
+                populateCategories(allFreebies);
+                filterFreebies(); // Initial render with default sort/filter
+            } else {
+                document.getElementById('freebie-container').innerHTML = `
+                    <div class="col-span-full text-center py-10 text-gray-500 text-lg bg-white rounded-xl shadow-md p-8 dark:bg-gray-800 dark:text-gray-400">
+                        <p class="mb-4">No freebies available right now. We're working hard to find new deals!</p>
+                        <p>Please check back soon or subscribe to get notified.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // IMPORTANT: You MUST replace 'YOUR_APPS_SCRIPT_WEB_APP_URL' with your actual deployed Google Apps Script Web App URL.
+        // This is the most common reason for the "Failed to load freebies" error.
+        // Ensure you append '&callback=parseSheetData' to the URL for JSONP.
+        // Example: https://script.google.com/macros/s/AKfycbz.../exec?callback=parseSheetData
+        const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbxVrvfbzyNQP_YndLoyFinf-SVObx-omdxiad4TZJM6Uk-sMjXxpkLlhyEOf2BjRPqwvQ/exec'; // <<< REMEMBER TO UPDATE THIS!
+
+        // Dynamically create a script tag to load data from Google Apps Script
+        // This leverages JSONP to bypass CORS restrictions
+        const script = document.createElement('script');
+        script.src = `${appsScriptUrl}?callback=parseSheetData`;
+        script.onerror = () => {
+            console.error("Failed to load freebies from Apps Script. Please check the URL and deployment settings.");
+            document.getElementById('freebie-container').innerHTML = `
+                <div class="col-span-full text-center py-10 text-red-500 text-lg bg-white rounded-xl shadow-md p-8 dark:bg-gray-800 dark:text-red-400">
+                    <p class="mb-4">Failed to load freebies.</p>
+                    <p>Please ensure the Google Apps Script URL is correct and deployed, or check your network connection.</p>
+                </div>
+            `;
+        };
+        document.head.appendChild(script);
+    </script>
+
+</body>
+</html>
