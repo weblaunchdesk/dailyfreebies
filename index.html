@@ -196,7 +196,7 @@
                 Unlock Amazing Freebies!
             </h2>
             <p class="text-base sm:text-lg lg:text-xl opacity-90 max-w-3xl mx-auto">
-                Your daily dose of <strong>high-demand</strong> free courses, subscriptions, trials, and more, tailored for Indian college students.
+                Your daily dose of *high-demand* free courses, subscriptions, trials, and more, tailored for Indian college students.
             </p>
         </section>
 
@@ -420,7 +420,8 @@
                             <a href="${item.link || '#'}" 
                                target="_blank" 
                                rel="noopener noreferrer" 
-                               class="mt-auto inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-5 rounded-lg text-center transition duration-300 ease-in-out transform hover:scale-105 shadow-md dark:bg-indigo-500 dark:hover:bg-indigo-600">
+                               class="mt-auto inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-5 rounded-lg text-center transition duration-300 ease-in-out transform hover:scale-105 shadow-md dark:bg-indigo-500 dark:hover:bg-indigo-600"
+                               onclick="trackFreebieClick('${item.title || 'Untitled'}', '${item.category || 'N/A'}', '${item.link || 'N/A'}')">
                                 Get Freebie
                             </a>
                         </div>
@@ -459,6 +460,27 @@
             // Push any new ads to AdSense if it's loaded
             if (typeof adsbygoogle !== 'undefined' && adsbygoogle.length > 0) {
                 (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        }
+
+        /**
+         * Tracks a "Get Freebie" button click event in Google Analytics.
+         * @param {string} freebieTitle - The title of the freebie.
+         * @param {string} freebieCategory - The category of the freebie.
+         * @param {string} freebieLink - The link of the freebie.
+         */
+        function trackFreebieClick(freebieTitle, freebieCategory, freebieLink) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'get_freebie_click', {
+                    'event_category': 'Freebie Engagement',
+                    'event_label': freebieTitle,
+                    'freebie_category': freebieCategory, // Custom parameter
+                    'freebie_link': freebieLink,         // Custom parameter
+                    'value': 1 // You can assign a value if this action has monetary significance
+                });
+                console.log(`GA Event: get_freebie_click - Title: ${freebieTitle}, Category: ${freebieCategory}`);
+            } else {
+                console.warn("gtag function not available. Google Analytics might not be loaded.");
             }
         }
 
